@@ -34,10 +34,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="card-row">
+        <div className="cardRow">
           <Card word={this.state.currentCard.word} meaning={this.state.currentCard.meaning} type={this.state.currentCard.type} usage={this.state.currentCard.usage}/>
         </div>
-        <div className="buttonRow">
+        <div className="btnRow">
           <DrawButton drawCard={this.updateCard}/>
         </div>
       </div>
