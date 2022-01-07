@@ -1,0 +1,106 @@
+.modal-wrapper {
+  border: 1px solid transparent;
+  box-shadow: 0 0 0.5vw #d3d3d3;
+  border-radius: 2vh;
+  height: 50vh;
+  width: 25vw;
+  background-color: white;
+  padding: 2vh 0 2vh 0;
+}
+
+.mo-row {
+  display: flex;
+  flex-direction: row;
+  padding: 1vh 1vw;
+}
+
+.mo-header {
+  flex: 4;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+h1.mo-h1 {
+  margin: 0;
+}
+
+.mo-close-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.mo-form {
+  width: 100%;
+}
+
+.mo-input-field,
+.mo-textarea-field {
+  padding: 0.5vh 0;
+  width: 100%;
+}
+
+input,
+textarea {
+  /* color: var(--textColor); */
+  margin-top: 0.5vh;
+  font-size: 14px;
+  line-height: 20px;
+  appearance: none;
+  padding: 1vh;
+  border-radius: 0.75vh;
+  outline: none;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #e4e4e4;
+  transition: border 0.3s ease;
+  box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus {
+  border: 1px solid #b9b9b9;
+  transition: background-color 0.3s ease;
+  transition: border 0.3s ease;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+  color: transparent;
+}
+
+input::placeholder,
+textarea::placeholder {
+  transition: color 0.3s ease;
+}
+
+.mo-btn-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.mo-btn {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  margin: 0 0.2vw;
+}
+
+.btn-txt {
+  font-size: 0.75em;
+}
+
+.inp-label {
+  font-size: 0.9em;
+  font-weight: 550;
+  color: #353535;
+  margin: 0 0.2vw;
+}
+
+.inp-error {
+  color: red;
+  font-size: 0.75em;
+  margin: 0 0.2vw;
+}

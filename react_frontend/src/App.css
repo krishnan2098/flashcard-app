@@ -1,0 +1,12 @@
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+  /* padding: 5px; */
+}
+
+.app-btn {
+  margin: 0 0.2vw;
+}

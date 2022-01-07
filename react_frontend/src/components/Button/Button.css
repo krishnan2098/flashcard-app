@@ -1,0 +1,34 @@
+.btn {
+  font-size: 1.5em;
+  border: none;
+  height: 5.5vh;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  margin: 1vh 0;
+  padding: 1vh 1vw;
+  /* color: #ecf0f1; */
+  /* background: #34495e; */
+  border-radius: 0.5vh;
+}
+
+.btn:active {
+  border: none;
+  position: relative;
+  top: 3px;
+  box-shadow: 0px 0px #2c3e50;
+}
+
+.btn:hover {
+  border: none;
+  position: relative;
+  opacity: 0.9;
+}
+
+.btn:disabled,
+.btn[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  /* background-color: #e9e9ed; */
+  color: #666666;
+}
