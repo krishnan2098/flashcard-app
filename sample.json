@@ -1,0 +1,61 @@
+[
+    {
+        "word": "enfranchise",
+        "phonetic": "ɪnˈfran(t)ʃʌɪz",
+        "phonetics": [
+            {
+                "text": "ɪnˈfran(t)ʃʌɪz",
+                "audio": "//ssl.gstatic.com/dictionary/static/sounds/20200429/enfranchise--_gb_1.mp3"
+            },
+            {
+                "text": "ɛnˈfran(t)ʃʌɪz"
+            }
+        ],
+        "origin": "late Middle English (formerly also as infranchise ): from Old French enfranchiss-, lengthened stem of enfranchir, from en- (expressing a change of state) + franc, franche ‘free’.",
+        "meanings": [
+            {
+                "partOfSpeech": "verb",
+                "definitions": [
+                    {
+                        "definition": "give the right to vote to.",
+                        "synonyms": [
+                            "give voting rights to",
+                            "give the vote to",
+                            "give suffrage to",
+                            "grant suffrage to",
+                            "grant franchise to"
+                        ],
+                        "antonyms": [
+                            "disenfranchise"
+                        ]
+                    },
+                    {
+                        "definition": "free (a slave).",
+                        "synonyms": [
+                            "emancipate",
+                            "liberate",
+                            "free",
+                            "set free",
+                            "release",
+                            "empower",
+                            "unchain",
+                            "unyoke",
+                            "unfetter",
+                            "unshackle",
+                            "naturalize",
+                            "grant citizenship to",
+                            "confer citizenship on",
+                            "manumit",
+                            "affranchise",
+                            "disenthral",
+                            "citizenize"
+                        ],
+                        "antonyms": [
+                            "enslave"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
