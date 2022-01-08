@@ -1,50 +1,60 @@
 .card-container {
-  height: 55vh;
+  height: 30vh;
   width: 25vw;
-  perspective: 800px;
-  position: relative;
-  margin: auto;
-  transition: ease-in;
+  display: inherit;
 }
 
 .card {
-  height: 100%;
+  height: 30vh;
   width: 100%;
-  position: absolute;
-  transform-style: preserve-3d;
-  transition: all 0.4s ease-in-out;
-}
-
-.card .side {
+  padding: 2vh 1vw;
   border: 1px solid transparent;
   border-radius: 2vh;
   box-shadow: 0 0 0.5vw #d3d3d3;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  text-align: center;
   background-color: rgba(255, 251, 251, 1);
 }
 
+.card .side {
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+
+.word-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .word {
-  color: #333;
+  margin: 0 0.5vw;
   font-size: 2.3em;
-  padding-top: 40%;
+  color: #333;
+}
+
+.definition {
+  margin-bottom: 0.75vh;
+}
+
+.type {
+  color: #848484;
+  font-size: 1.2em;
+  margin: 0.5vh 0;
 }
 
 .meaning {
   color: #333;
-  font-size: 1.3em;
-  padding-top: 20%;
-}
-
-.type {
-  color: rgba(200, 10, 10, 1);
-  font-size: 2.3em;
-  padding-top: 10%;
+  font-size: 1.2em;
+  margin: 0.5vh 0;
 }
 
 .usage {
-  font-size: 1.3em;
-  padding-top: 2.5%;
+  font-size: 1em;
+  margin: 0.5vh 0;
+}
+
+.sentence {
+  margin: 0;
+  padding: 0;
+  color: green;
 }

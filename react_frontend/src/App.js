@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AiFillLeftCircle, AiFillRightCircle, AiFillEdit } from 'react-icons/ai';
-import { GiCardExchange, GiSpeaker } from 'react-icons/gi';
+import { GiCardExchange } from 'react-icons/gi';
 import { MdCheckBoxOutlineBlank, MdCheckBox } from 'react-icons/md';
 import ReactModal from 'react-modal';
 
@@ -16,8 +16,6 @@ const App = () => {
   let [currentCard, setCurrentCard] = useState(0);
   let [showModal, setShowModal] = useState(false)
   let [isCompleted, setIsCompleted] = useState(false)
-  let audio = new Audio()
-  audio.src = "https://ssl.gstatic.com/dictionary/static/sounds/20200429/enfranchise--_gb_1.mp3"
 
   useEffect(() => {
     console.log("App component mounted")
@@ -59,17 +57,14 @@ const App = () => {
     return (
       <div className="App">
         <div className="row">
-          <Card frontSide={frontSide} word={cards[currentCard].word} meaning={cards[currentCard].meanings[0].meaning} type={cards[currentCard].meanings[0].part_of_speech} usage={cards[currentCard].meanings[0].example} />
+          <Card frontSide={frontSide} word={cards[currentCard].word} definitions={cards[currentCard].meanings} />
         </div>
         <div className="row">
           <div className='app-btn'>
-            <Button className="prev" style={{ width: "4vw", backgroundColor: "#6253cc", color: "white" }} onClick={() => { if(currentCard === 0) { return setCurrentCard(0) } else { return setCurrentCard(currentCard - 1)} }} ><AiFillLeftCircle /></Button>
+            <Button className="prev" style={{ width: "4vw", backgroundColor: "#6253cc", color: "white" }} onClick={() => { if (currentCard === 0) { return setCurrentCard(0) } else { return setCurrentCard(currentCard - 1) } }} ><AiFillLeftCircle /></Button>
           </div>
           <div className='app-btn'>
             <Button className="flip" style={{ width: "4vw", backgroundColor: "#6253cc", color: "white" }} onClick={() => setSide(!frontSide)} ><GiCardExchange /></Button>
-          </div>
-          <div className='app-btn'>
-            <Button className="audio" style={{ width: "4vw", backgroundColor: "#6253cc", color: "white" }} onClick={() => audio.play()} ><GiSpeaker /></Button>
           </div>
           <div className='app-btn'>
             <Button className="edit" style={{ width: "4vw", backgroundColor: "#6253cc", color: "white" }} onClick={() => setShowModal(!showModal)} ><AiFillEdit /></Button>
