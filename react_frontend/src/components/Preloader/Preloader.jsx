@@ -1,10 +1,12 @@
-import Loader from "react-loader-spinner";
+import {Oval} from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import './Preloader.css'
 
 const Preloader = () => {
     return (
         <div className="loader-wrapper">
-            <Loader type="Oval" color="#00BFFF" height={80} width={80} />
+            <Oval type="Oval" color="#6253cc" height={80} width={80} />
+            {/* Testing */}
         </div>
     )
 };

@@ -1,16 +1,9 @@
-.card-container {
+.card {
+  display: inherit;
   height: 30vh;
   width: 25vw;
-  display: inherit;
-}
-
-.card {
-  height: 30vh;
-  width: 100%;
   padding: 2vh 1vw;
-  border: 1px solid transparent;
   border-radius: 2vh;
-  box-shadow: 0 0 0.5vw #d3d3d3;
   background-color: rgba(255, 251, 251, 1);
 }
 
@@ -23,6 +16,26 @@
 .word-section {
   display: flex;
   flex-direction: row;
+}
+
+.edit-btn {
+  display: inherit;
+  align-items: center;
+}
+
+.heading {
+  display: inherit;
+  align-items: center;
+}
+
+.audio { 
+  width: 2.5vw;
+  height: 2.5vw;
+  border-radius: 50%;
+  background-color: #6253cc;
+  color: white;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 

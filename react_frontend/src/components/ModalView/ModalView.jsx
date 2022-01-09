@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MdOutlineClose } from "react-icons/md"
+import { MdOutlineClose } from "react-icons/md";
 import Button from '../Button/Button';
 import './ModalView.css'
 
@@ -16,25 +16,24 @@ const ModalView = (props) => {
   })
 
   const handleWordChange = (e) => {
-    setFormValues({...formValues, word: e.target.value});
+    setFormValues({ ...formValues, word: e.target.value });
   }
 
   const handleMeaningChange = (e) => {
-    setFormValues({...formValues, meaning: e.target.value});
+    setFormValues({ ...formValues, meaning: e.target.value });
   }
 
   const handlePartOfSpeechChange = (e) => {
-    setFormValues({...formValues, part_of_speech: e.target.value});
+    setFormValues({ ...formValues, part_of_speech: e.target.value });
   }
 
   const handleExampleChange = (e) => {
-    setFormValues({...formValues, example: e.target.value});
+    setFormValues({ ...formValues, example: e.target.value });
   }
 
   const submitData = async () => {
     try {
-      console.log("Submitted: ", submitted)
-      let result = await fetch("http://localhost:8000/api/flashcards/" + props.card.id + "/update/", {
+      await fetch("http://localhost:8000/api/flashcards/" + props.card.id + "/update/", {
         method: "post",
         headers: {
           "Accept": "application/json",
@@ -42,9 +41,9 @@ const ModalView = (props) => {
         },
         body: JSON.stringify(formValues)
       })
-      console.log("Result: ", result);
-    } catch(e) {
-      console.log(e);
+        .then((res) => { if (res.status === 200 && submitted) { alert("Updated!"); setSubmitted(false) } })
+    } catch (e) {
+      alert("Something went wrong! Please retry or contact Admin");
     }
 
   }
@@ -53,15 +52,13 @@ const ModalView = (props) => {
     e.preventDefault();
     setSubmitted(true)
   }
-  // const form = useRef();
-  console.log(props)
+
   return (
     <div className="modal-wrapper">
       <div className="mo-row">
         <div className='mo-header'><h1 className="mo-h1">Update Flashcard</h1></div>
         <div className="mo-close-btn">
-          {/* <Button onClick={props.onClick} style={{backgroundColor: "transparent"}}><MdOutlineClose /></Button> */}
-          <MdOutlineClose onClick={props.onClick} size={"2vw"} />
+          <MdOutlineClose onClick={props.onClick} size={"1.75vw"} />
         </div>
       </div>
       <div className="mo-row">
@@ -96,7 +93,7 @@ const ModalView = (props) => {
                 <Button onClick={props.onClick}><div className="btn-txt">Cancel</div></Button>
               </div>
               <div className="mo-btn">
-                <Button onClick={() => submitData() } style={{ backgroundColor: "#6253cc", color: "white" }} ><div className="btn-txt">Save</div></Button>
+                <Button onClick={() => submitData()} style={{ backgroundColor: "#6253cc", color: "white" }} ><div className="btn-txt">Save</div></Button>
               </div>
             </div>
           </div>

@@ -5,13 +5,13 @@
   height: 50vh;
   width: 25vw;
   background-color: white;
-  padding: 2vh 0 2vh 0;
+  padding: 2vh 1vw;
 }
 
 .mo-row {
   display: flex;
   flex-direction: row;
-  padding: 1vh 1vw;
+  padding: 0.75vh 0;
 }
 
 .mo-header {
@@ -86,6 +86,7 @@ textarea::placeholder {
   flex: 1;
   justify-content: flex-end;
   margin: 0 0.2vw;
+  padding: 0.5vh 0 1vh 0;
 }
 
 .btn-txt {
