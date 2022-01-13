@@ -3,6 +3,8 @@ import { AiFillLeftCircle, AiFillRightCircle } from 'react-icons/ai';
 import { GiCardExchange } from 'react-icons/gi';
 import { MdCheckBoxOutlineBlank, MdCheckBox } from 'react-icons/md';
 import ReactModal from 'react-modal';
+import {wrap} from 'popmotion';
+import {AnimatePresence, motion} from 'framer-motion';
 
 import Card from './components/Card/Card';
 import Button from './components/Button/Button';
@@ -14,9 +16,41 @@ const App = () => {
   let [cards, setCards] = useState([]);
   let [isEmpty, setIsEmpty] = useState("");
   let [frontSide, setSide] = useState(true)
-  let [currentCard, setCurrentCard] = useState(1);
+  let [[currentCard, direction], setCurrentCard] = useState([1, 0]);
   let [showModal, setShowModal] = useState(false)
   let [isCompleted, setIsCompleted] = useState(false)
+
+  const cardIndex = wrap(0, cards.length, currentCard);
+
+  const paginate = (newCard) => {
+    let newDirection;
+    if(newCard > currentCard) {
+      newDirection = 1;
+    } else {
+      newDirection = -1;
+    }
+    setCurrentCard([newCard, newDirection]);
+  };
+
+  const variants = {
+    enter: (direction) => {
+      return {
+        x: direction > 0 ? 1000 : -1000,
+        opacity: 0
+      };
+    },
+    center: {
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction) => {
+      return {
+        x: direction < 0 ? 1000 : -1000,
+        opacity: 0
+      };
+    }
+  };
+
 
   useEffect(() => {
     fetch('http://localhost:8000/api/flashcards/')
@@ -67,7 +101,23 @@ const App = () => {
       <div>
         <div className="App">
           <div className="row">
-            <Card frontSide={frontSide} toggleModal={() => setShowModal(true)} audio={cards[currentCard - 1]["audio"]} word={cards[currentCard - 1].word} definitions={cards[currentCard - 1].meanings} />
+            <AnimatePresence initial={false} custom={direction} exitBeforeEnter>
+              <motion.div
+                className='card-section'
+                key={currentCard}
+                custom={direction}
+                variants={variants}
+                initial='enter'
+                animate='center'
+                exit='exit'
+                transition={{
+                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.2 }
+                }}
+              >
+                <Card frontSide={frontSide} toggleModal={() => setShowModal(true)} audio={cards[currentCard - 1]["audio"]} word={cards[currentCard - 1].word} definitions={cards[currentCard - 1].meanings} />
+              </motion.div>
+            </AnimatePresence>
           </div>
           <div className="row">
             <div className='app-btn'>
@@ -76,7 +126,7 @@ const App = () => {
             </Button>
             </div>
             <div className='app-btn'>
-              <Button className="prev button-standards" onClick={() => { if (currentCard === 1) { return setCurrentCard(1) } else { return setCurrentCard(currentCard - 1) } }} >
+              <Button className="prev button-standards" onClick={() => { if (currentCard === 1) { return paginate(1) } else { return paginate(currentCard - 1) } }} >
                 <AiFillLeftCircle />
               </Button>
             </div>
@@ -89,7 +139,7 @@ const App = () => {
               </div>
             </div>
             <div className='app-btn'>
-              <Button className="next button-standards" onClick={() => { if (currentCard === cards.length) {alert("Max limit Reached!")} else setCurrentCard(currentCard + 1) }} ><AiFillRightCircle /></Button>
+              <Button className="next button-standards" onClick={() => { if (currentCard === cards.length) {alert("Max limit Reached!")} else paginate(currentCard + 1) }} ><AiFillRightCircle /></Button>
             </div>
             <div className='app-btn'>
               <Button className="completed button-standards" onClick={() => handleCompletion()} >{isCompleted === false ? <MdCheckBoxOutlineBlank /> : <MdCheckBox />}</Button>
